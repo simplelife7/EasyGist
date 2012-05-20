@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<title>EasyGist</title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="navbar">
+  <div class="navbar-inner">
+      <div class="nav-collapse clearfix">
+          <h1>Easy Gist</h1>
+          <div class="brand" id="userInfo"></div>
+          <div class="navbar-search pull-right">
+            <input type="text" class="search-query span2" placeholder="Search" id="search"  data-provide="typeahead">
+          </div>
+          <a class="creat_gist_link"  data-toggle="modal" href="#myModal" title="Create a new gist"><i class="icon-pencil icon-white"></i></a>          
+        </div>
+  </div>
+</header>
+<div class="main">
+  <div class=" login" id="loginWrap">
+    <a class="btn btn-large btn-primary" id="loginLink" href="#">Please login your Gist</a>
+  </div>
+  <div class="newer" id="newer">
+    <p>You have no gist!</p>
+    <a class="btn btn-large btn-primary" data-toggle="modal" href="#myModal">Please create a new gist</a>
+  </div> 
+  <aside id="glistList" class=""></aside>
+  <article id="singleList"></article>
+</div>
+<footer class="footer">
+  <p><a href="#" target="_blank">About Easy Gist</a></p>
+</footer>
+
+
+<div class="modal float_gist fade" id="myModal" >
+  <div class="modal-header">
+    <button class="close" data-dismiss="modal">×</button>
+    <h3>Create Gist</h3>
+  </div>
+  <div class="modal-body" >
+    <div class="new_gist_fm">
+      <div class="fm_item">
+        <label>Gist description…<a href="#" title="Add another file...." id="newFile"><i class="icon-plus-sign"></i></a></label>
+        <input type="text" class="" id="gistName" placeholder="Gist description…">
+      </div>
+
+      <div id="newGistInfo" class="files_area">
+
+        <div class="fm_item">
+          <label>Name this file…</label>
+          <input type="text" class="" id="fileName0" placeholder="Name this file…">
+        </div>
+
+        <div class="fm_item">
+          <label>Content:</label>
+          <textarea name="" id="fileCon0"   ></textarea>
+        </div>
+      </div>
+
+    </div>
+
+    
+
+    
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" id="cPublicGist"><i class="icon-heart"></i> New Public Gist</a>
+    <a href="#" class="btn"  id="cPrivateGist"><i class="icon-user"></i> New Private Gist</a>
+  </div>
+</div>
+
+
+<script type="text/html" id="newFileDom">
+<div class="new_files_area">
+      <div class="fm_item">
+        <label>Name this file… <a href="#" title="Remove this file..." class="del_file"><i class="icon-remove-sign"></i></a></label>
+        <input type="text" class=""  placeholder="Name this file…">
+      </div>
+
+      <div class="fm_item">
+        <label>Content:</label>
+        <textarea name=""   ></textarea>
+      </div>  
+</div>
+
+</script>
+
+
+
+<script type="text/html" id="userDom">
+<a href="{#userLink#}" class="thumbnail" target="_blank"><img src="{#userPic#}" alt="{#userName#}"/></a><a href="{#userLink#}"  target="_blank">{#userName#}</a>
+<ul class="dropdown-menu">
+  <li><a href="/easyGist" onclick="easyGist.user.logout()">log out</a></li>
+</ul>
+</script>
+
+
+<script type="text/html" id="gistListDom">
+  <header class="page-header clearfix">
+    <h3>My Gist List</h3>
+  </header>
+  <ul class="nav nav-tabs nav-stacked">{#gistList#}</ul>
+</script>
+
+<script type="text/html" id="singleGistDom">
+<header class="page-header clearfix">
+  <h3><a href="{#htmlUrl#}" target="_blank" id="getGistId">{#gistTitle#}</a><i  id="gistTitle" rel="popover" title="It's {#isPublic#} <br/> Update at : {#updateTime#}" class="icon-info-sign"></i></h3>
+  <div class="btn-group">
+    <a class="btn" id="toBack" href="/easyGist">Back</a>
+    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+    <ul class="dropdown-menu">
+      <li><a href="{#editGistLink#}" target="_blank">Edit this gist</a></li>
+      <li><a href="#" onclick="domAction.deleteGist()">Delete this gist</a></li>
+
+    </ul>
+  </div>
+</header>
+
+
+  <ul class="nav nav-tabs">
+    {#tabNavHtml#}
+  </ul>
+  <div class="tab-content" id="myTabContent" >
+  {#tabConHtml#}
+  <footer class="ft_opt"><a id="updateFileButton" href="##" class="btn" onclick="domAction.editFiles()">Update this file</a><a id="copy_button" href="#" class="btn">Copy</a></div>
+  </footer>
+</script>
+
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>    
+<script src="js/bootstrap-typeahead.js"></script>
+<script src="js/easygist.js"></script>
+<script src="js/gist.js"></script>
+<script src="js/domaction.js"></script>
+<script type="text/javascript" src="js/jquery.zclip.min.js"></script>
+
+
+<script type="text/javascript"> 
+
+
+
+
+
+$(document).ready(function(){
+  window.ACCESS_TOKEN = localStorage['access_token'];
+  $('#loginWrap').click(function(e) {
+    e.preventDefault();
+    easyGist.user.login();
+  });
+
+  if (ACCESS_TOKEN) {
+    gist.getUser(function(user) {
+      easyGist.user.afterLogin(user);
+    });
+  } else {
+    $('#loginWrap').show();
+  };
+  domAction.createGistListener();
+})
+
+
+</script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31892308-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

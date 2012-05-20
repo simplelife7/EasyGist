@@ -1,0 +1,79 @@
+
+
+::-webkit-scrollbar-track-piece{background:#DEECF3;}::-webkit-scrollbar{width:8px;}::-webkit-scrollbar-thumb{background:#555;border-right:1px solid #DEECF3;border-radius:5px;}
+
+.clearfix { *zoom: 1;}
+.clearfix:before, .clearfix:after {display: table;content: "";}
+.clearfix:after {clear: both;}
+
+.login,
+.newer{display:none; margin-top:140px; text-align:center;}
+.typeahead{width:100px;overflow: hidden; left:auto!important;right:0!important;}
+
+.navbar{margin-bottom:0;}
+.navbar h1{float:left;padding-top:4px;color: #fff;}
+.navbar-inner{height:50px;padding-left:10px;padding-right:10px;border-radius:0px;border-radius:0px;}
+.navbar .brand{position:relative;padding-top:10px; font-size:16px;}
+.navbar .brand:hover .dropdown-menu{display:block;}
+.navbar .brand .dropdown-menu{position:absolute;left:16px;top:45px;}
+.navbar .brand .dropdown-menu a{color:#08C;}
+.navbar .brand .dropdown-menu a:hover{color:#fff}
+.brand .thumbnail{display: inline-block;margin-right:10px;padding:1px;background-color:#fff;vertical-align: middle;} 
+.brand img{display:block;width:24px;height:24px;}
+.brand a{color:#fff;}
+
+.creat_gist_link{float:right;margin-top:15px;margin-right:10px;}
+.navbar-search {margin-top:10px;}
+
+.main{position:relative;min-height:200px;max-height:370px;margin-top:5px;overflow: auto; padding:0 10px;background:url(https://a248.e.akamai.net/assets.github.com/images/spinners/octocat-spinner-64.gif?1329872009) center center no-repeat;}
+.main .nav-stacked{min-height:200px;}
+
+.page-header .dropdown-menu,
+.nav-tabs{margin-bottom:8px;}
+.nav-tabs .dropdown-menu{left:auto;right:0px;}
+.page-header{border-bottom: none;margin-bottom:10px;padding-bottom:0;}
+.page-header h3{float: left;max-width:245px;}
+.page-header .btn-group{float: right;}
+.page-header .btn-group .dropdown-menu{left:auto;right:0px;}
+.page-header i{vertical-align: middle;margin-left:5px;}
+
+.nav-tabs{margin-top:10px;}
+.tab-pane h4{font-size:18px;line-height:1.8;}
+
+.gist-opt .btn-group{float:right;width:81px;}
+.gist-opt .btn-group a{}
+.gist-opt .dropdown-menu{left:auto;right:0px;}
+
+#singleList{background-color: #fff;}
+#glistList{background-color: #fff;}
+
+textarea{min-width:98%;min-height:160px;}
+#copy_button{display:inline-block!important;}
+.tooltip-inner{text-align: left!important;}
+
+.ft_opt{float:right;}
+.ft_opt .btn{margin-left:10px;}
+
+.footer {position: absolute;left:10px;bottom:5px;}
+
+
+.float_gist{display:none;width:320px;max-height:400px;margin-left:-160px;margin-top:-208px;top:55px;}
+.float_gist textarea{min-width:90%;min-height:55px;}
+.float_gist .files_area{height:190px;overflow:auto;}
+
+@media only screen and (min-width:400px) {
+	#glistList,#singleList{float:left!important;display:block!important;}
+	#glistList{width:30%;}
+	#glistList .page-header{display:none;}
+	#singleList{width:70%;}
+	#singleList .page-header,
+	#singleList .gist-opt,
+	#singleList .nav-tabs,
+	#singleList .tab-content{margin-left:20px;}
+	.page-header h3{max-width:none;}
+	
+}
+ 
+
+
+
