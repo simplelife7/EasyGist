@@ -1,4 +1,3 @@
-EasyGist
-========
+## 一、关于 EasyGist：
 
-A Chrome Extension to create, load, delete your gist
+EasyGist是一个基于[Github:Gist](https://gist.github.com/) 平台
