@@ -10,7 +10,7 @@ EasyGist是基于[Github:Gist](https://gist.github.com/) 平台，便捷录入�
 
 ## 三、使用 EasyGist WEB版：
 
-您可以 [点击这里](http://lab.reeqi.name/easyGist/index.html) 使用EasyGist WEB版
+您可以 [点击这里](http://lab.reeqi.name/easyGist/index.html) 使用EasyGist WEB版 （请使用 `Chrome` 或 `FireFox` ）
 
 ## 四、声明：
 
